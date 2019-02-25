@@ -1,0 +1,18 @@
+{% load static %}
+<html>
+    <head>
+        <title>HOME</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <body>
+        <h1>WORD COUNT</h1>
+        <a href="{% url 'about' %}">ABOUT</a>
+        <form onSubmit="return check_empty();" action="{% url 'count' %}">
+            <textarea name="fulltext" id="checktext" cols="40" rows="10"></textarea>
+            <br>
+            <input type="submit" value="count!">
+        </form>
+        <script src="{% static 'javascript/count.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+    <head>
+        <title>COUNT</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}?ver=1.0">
+    </head>
+    <body>
+        <h1>총 {{ total }}개의 단어로 구성되어 있습니다!</h1>
+        <a href="{% url 'home' %}">HOME</a>
+        <br>
+        <h2>orginal text</h2>
+            {{ fulltext }}
+        <h2>count</h2>
+        <table>
+            <tr id="words">
+                {% for a,b in dictionary %}
+                    {% if b == most_word %}
+                        <td id="most_count"> {{a}} </td>
+                    {% else %}
+                        <td> {{a}} </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr>
+                    {% for a,b in dictionary %}
+                    <td> {{b}} </td>
+                    {% endfor %}
+            </tr>
+        </table>      
+    </body>
+</html>
